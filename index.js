@@ -16,6 +16,9 @@ checkButton.addEventListener("click", function validateBillAnsCashAmount() {
   }
 });
 
+function hideMessage() {
+  errorMessage.style.display = "none";
+}
 function showMessage(message) {
   errorMessage.style.display = "block";
   errorMessage.innerText = message;
