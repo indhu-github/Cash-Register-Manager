@@ -1,11 +1,21 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-width: 100vw;
 }
 .container {
+  background-color: rgb(11, 44, 17);
   display: flex;
+  color: #fff;
+  font-family: Serif;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 50vw;
+  height: 90vh;
 }
+.heading {
+  padding: 5px;
+  margin-top: 30px;
+} */
