@@ -31,6 +31,16 @@ body {
   visibility: hidden;
 }
 
+#invalid-amount {
+  visibility: hidden;
+}
+
+#invalid-amount.show {
+  visibility: visible;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
 #bill-div,
 #cashGiven-div {
   margin: 5px;

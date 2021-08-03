@@ -5,10 +5,14 @@ const errorMessage = document.getElementById("error-message");
 const nextButton = document.getElementById("next-button");
 const availableNotes = [2000, 500, 100, 50, 20, 10, 5, 1];
 const notesCount = document.querySelectorAll(".count");
+const invalidAmountMessage = document.getElementById("invalid-amount");
 
 nextButton.addEventListener("click", function validateBillAmount() {
   if (billAmount.value > 0) {
     document.getElementById("cashGiven-div").style.visibility = "visible";
+  } else {
+    document.getElementById("invalid-amount").className = "show";
+    //document.getElementById("invalid-amount").style.visibility = "visible";
   }
 });
 
