@@ -26,6 +26,11 @@ body {
   padding: 5px 10px;
   font-size: 20px;
 }
+
+#cashGiven-div {
+  visibility: hidden;
+}
+
 #bill-div,
 #cashGiven-div {
   margin: 5px;
@@ -46,4 +51,9 @@ input {
 }
 label {
   font-size: 20px;
+}
+button {
+  width: 30%;
+  border-radius: 5px;
+  height: 30px;
 }
