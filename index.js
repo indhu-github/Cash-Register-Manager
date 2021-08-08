@@ -10,6 +10,7 @@ const invalidAmountMessage = document.getElementById("invalid-amount");
 nextButton.addEventListener("click", function validateBillAmount() {
   if (billAmount.value > 0) {
     document.getElementById("cashGiven-div").style.visibility = "visible";
+    document.getElementById("next-button").style.display = "none";
     document.getElementById("invalid-amount").className = "";
   } else {
     document.getElementById("invalid-amount").className = "show";
@@ -17,12 +18,17 @@ nextButton.addEventListener("click", function validateBillAmount() {
 });
 
 checkButton.addEventListener("click", function validateBillAndCashAmount() {
-  errorMessage.style.display = "none";
+  hideMessage();
   if (billAmount.value > 0) {
     if (cashGiven.value >= billAmount.value) {
       const amountToBeReturned = cashGiven.value - billAmount.value;
-      calculateChange(amountToBeReturned);
+      if (amountToBeReturned > 0) {
+        calculateChange(amountToBeReturned);
+      } else {
+        showMessage("No return amount");
+      }
     } else {
+      showMessage("Do you wanna wash the plates?");
     }
   } else {
     showMessage("Invalid bill amount");
@@ -30,6 +36,7 @@ checkButton.addEventListener("click", function validateBillAndCashAmount() {
 });
 
 function calculateChange(amountToBeReturned) {
+  document.querySelector(".change-table").style.visibility = "visible";
   for (i in availableNotes) {
     const numberOfNotes = Math.trunc(amountToBeReturned / availableNotes[i]);
     amountToBeReturned %= availableNotes[i];
@@ -44,4 +51,5 @@ function hideMessage() {
 function showMessage(message) {
   errorMessage.style.display = "block";
   errorMessage.innerText = message;
+  errorMessage.className = "show";
 }

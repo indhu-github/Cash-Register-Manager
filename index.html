@@ -18,16 +18,17 @@
         <label for="bill-amount">Bill Amount</label>
         <input type="number" id="bill-amount" />
         <button id="next-button">Next</button>
-        <p id="invalid-amount" style="margin-top: 10px">Invalid amount</p>
+        <p id="invalid-amount">Invalid amount</p>
       </div>
       <div id="cashGiven-div">
         <label for="cash-given">Cash Given</label>
         <input type="number" id="cash-given" />
         <button id="check-button">Check</button>
+        <p id="error-message"></p>
       </div>
-      <p id="error-message"></p>
+
       <div class="change-table">
-        <h3>Return Change</h3>
+        <h3 style="color: #98f3d0">Return Change</h3>
         <table class="table_styles">
           <tr>
             <th class="shaded" style="word-break: normal">No of Notes</th>
