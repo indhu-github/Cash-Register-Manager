@@ -23,11 +23,9 @@ checkButton.addEventListener("click", function validateBillAndCashAmount() {
   if (billAmount.value > 0) {
     if (cashGiven.value >= billAmount.value) {
       const amountToBeReturned = cashGiven.value - billAmount.value;
-      if (amountToBeReturned == 0) {
-        showMessage("No return amount");
-      } else {
-        calculateChange(amountToBeReturned);
-      }
+      amountToBeReturned == 0
+        ? showMessage("No return amount")
+        : calculateChange(amountToBeReturned);
     } else {
       document.querySelector(".change-table").style.visibility = "hidden";
       showMessage("Do you wanna wash the plates?");
