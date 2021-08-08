@@ -1,4 +1,3 @@
-# Cash-Register-Manager
 
 # manage the cash register
 
