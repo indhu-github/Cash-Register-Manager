@@ -1,5 +1,5 @@
 
-# manage the cash register
+# Manage the cash register
 
 - This program has currencies of Rs. 1, 5, 10, 20, 50, 100, 500, 2000. 
 - User enters a bill amount say Rs. 243. 
