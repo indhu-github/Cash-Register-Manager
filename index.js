@@ -18,19 +18,22 @@ nextButton.addEventListener("click", function validateBillAmount() {
 });
 
 checkButton.addEventListener("click", function validateBillAndCashAmount() {
+  console.log(billAmount.value, cashGiven.value);
   hideMessage();
   if (billAmount.value > 0) {
     if (cashGiven.value >= billAmount.value) {
       const amountToBeReturned = cashGiven.value - billAmount.value;
-      if (amountToBeReturned > 0) {
-        calculateChange(amountToBeReturned);
-      } else {
+      if (amountToBeReturned == 0) {
         showMessage("No return amount");
+      } else {
+        calculateChange(amountToBeReturned);
       }
     } else {
+      document.querySelector(".change-table").style.visibility = "hidden";
       showMessage("Do you wanna wash the plates?");
     }
   } else {
+    document.querySelector(".change-table").style.visibility = "hidden";
     showMessage("Invalid bill amount");
   }
 });
