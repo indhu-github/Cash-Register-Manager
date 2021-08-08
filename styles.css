@@ -25,6 +25,7 @@ body {
 .description {
   padding: 5px 10px;
   font-size: 20px;
+  line-height: 1.5em;
 }
 
 #cashGiven-div {
@@ -56,14 +57,39 @@ input {
   padding: 10px;
   font-size: 1.2em;
 }
-#next-button {
-  margin-top: 10px;
-}
-label {
+label,
+caption {
   font-size: 20px;
+  margin-bottom: 5px;
 }
 button {
   width: 30%;
   border-radius: 5px;
   height: 30px;
+  margin-top: 10px;
+}
+.change-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.table_styles {
+  width: 100%;
+  margin-top: 10px;
+  border-spacing: 1;
+}
+.shaded {
+  background-color: #a7f3d0;
+  text-align: left;
+}
+.count {
+  background-color: rgb(255, 192, 203);
+}
+
+th,
+td {
+  display: table-cell;
+  width: 50px;
+  padding: 10px 20px;
 }

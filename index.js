@@ -10,9 +10,9 @@ const invalidAmountMessage = document.getElementById("invalid-amount");
 nextButton.addEventListener("click", function validateBillAmount() {
   if (billAmount.value > 0) {
     document.getElementById("cashGiven-div").style.visibility = "visible";
+    document.getElementById("invalid-amount").className = "";
   } else {
     document.getElementById("invalid-amount").className = "show";
-    //document.getElementById("invalid-amount").style.visibility = "visible";
   }
 });
 
