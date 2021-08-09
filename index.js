@@ -8,7 +8,7 @@ const notesCount = document.querySelectorAll(".count");
 const invalidAmountMessage = document.getElementById("invalid-amount");
 
 nextButton.addEventListener("click", function validateBillAmount() {
-  if (billAmount.value > 0) {
+  if (parseFloat(billAmount.value) > 0) {
     document.getElementById("cashGiven-div").style.visibility = "visible";
     document.getElementById("next-button").style.display = "none";
     document.getElementById("invalid-amount").className = "";
@@ -18,25 +18,28 @@ nextButton.addEventListener("click", function validateBillAmount() {
 });
 
 checkButton.addEventListener("click", function validateBillAndCashAmount() {
-  console.log(billAmount.value, cashGiven.value);
   hideMessage();
-  if (billAmount.value > 0) {
-    if (cashGiven.value >= billAmount.value) {
-      const amountToBeReturned = cashGiven.value - billAmount.value;
-      amountToBeReturned == 0
-        ? showMessage("No return amount")
-        : calculateChange(amountToBeReturned);
+  if (parseFloat(billAmount.value) > 0) {
+    if (parseFloat(cashGiven.value) >= parseFloat(billAmount.value)) {
+      const amountToBeReturned =
+        parseFloat(cashGiven.value) - parseFloat(billAmount.value);
+      calculateChange(amountToBeReturned);
     } else {
-      document.querySelector(".change-table").style.visibility = "hidden";
+      hideTable();
       showMessage("Do you wanna wash the plates?");
     }
   } else {
-    document.querySelector(".change-table").style.visibility = "hidden";
+    hideTable();
     showMessage("Invalid bill amount");
   }
 });
 
 function calculateChange(amountToBeReturned) {
+  if (amountToBeReturned == 0) {
+    hideTable();
+    showMessage("No return amount");
+    return;
+  }
   document.querySelector(".change-table").style.visibility = "visible";
   for (i in availableNotes) {
     const numberOfNotes = Math.trunc(amountToBeReturned / availableNotes[i]);
@@ -53,4 +56,8 @@ function showMessage(message) {
   errorMessage.style.display = "block";
   errorMessage.innerText = message;
   errorMessage.className = "show";
+}
+
+function hideTable() {
+  document.querySelector(".change-table").style.visibility = "hidden";
 }
